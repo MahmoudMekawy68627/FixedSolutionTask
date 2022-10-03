@@ -1,0 +1,62 @@
+.user-card-container {
+    width: 400px;
+    margin-bottom: 30px;
+    padding-left: 5px;
+    box-shadow: 0 0 10px 3px #d0d0d0;
+    border-radius: 8px;
+    translate: 2px 2px;
+    overflow: hidden;
+    background-image: linear-gradient(white, white), linear-gradient(rgb(239, 234, 234), rgb(239, 234, 234));
+    background-size: 0 100%, auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all .7s ease-out;
+    font-weight: bold;
+    
+}
+@media (max-width: 940px) {
+    .user-card-container{
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 1286px) {
+    .user-card-container{
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
+.user-card{
+    opacity: .7;
+}
+.user-card:hover{
+    opacity: 1;
+    transition: all .6s ease-out;
+}
+
+.user-card-container:hover  {
+    scale: 1.05;
+    background-size: 100% 100%, auto;
+    opacity: 1;
+}
+
+.user-post-button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: #4577b5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    width: 30%;
+    height: 30px;
+    translate: 2px 2px;
+    cursor: pointer;
+
+    
+}
+.user-post-button:hover{
+    box-shadow: 0 0 5px 5px #d0d0d0;
+    scale: 1.05;
+
+}

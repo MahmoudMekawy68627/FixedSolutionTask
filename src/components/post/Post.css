@@ -1,0 +1,36 @@
+.post {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px 3px #d0d0d0;
+    translate: 2px 2px;
+    overflow: hidden;
+    background-image: linear-gradient(white, white), linear-gradient(rgb(239, 234, 234), rgb(239, 234, 234));
+    background-size: 0 100%, auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all .7s ease-out;
+}
+.post:hover{
+    scale: 1.05;
+    background-size: 100% 100%, auto;
+    opacity: 1;
+}
+.post-title{
+    opacity: .7;
+}
+
+.post-title:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.post-data-unexpanded {
+    display: none;
+}
+
+.post-data-expanded {
+    display: block;
+}
