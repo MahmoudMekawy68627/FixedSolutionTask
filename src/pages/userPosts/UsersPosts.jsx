@@ -1,14 +1,16 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+// import { useEffect, useState } from 'react'
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Post from '../../components/post/Post';
 import './UserPosts.css';
 
 export default function UsersPosts() {
-    const [posts, setPosts] = useState([]);
     let { userId, name: userName } = useParams();
+    /*const [posts, setPosts] = useState([]);
 
-    // Function to fetch posts
+    Function to fetch posts
     let getPosts = async () => {
         let { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
         setPosts(data);
@@ -19,6 +21,20 @@ export default function UsersPosts() {
         getPosts();
 
     }, [])
+*/
+
+    // fetching Data with React Query 
+    let { data, isLoading, isError, error } = useQuery('post', () => {
+        return axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+    });
+
+    if (isLoading) {
+        return <h2 className='users-loading'> Loading ...</h2>
+    }
+
+    if (isError) {
+        return <h2 className='users-loading'> {error.message}</h2>
+    }
 
     return (
         <div>
@@ -27,8 +43,8 @@ export default function UsersPosts() {
             </div>
             <div className='userPosts-container'>
                 {
-                    posts.length > 0 ? posts.map((post) => <Post key={post.id} postInfo={post} />)
-                        : <h2 className='users-loading'> Loading ...</h2>
+                    data?.data.map((post) => <Post key={post.id} postInfo={post} />)
+
                 }
             </div>
         </div>
